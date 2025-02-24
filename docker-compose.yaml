@@ -1,5 +1,6 @@
 services:
-  byparr:
+  pypass:
+    container_name: pypass
     build:
       context: .
       dockerfile: Dockerfile
