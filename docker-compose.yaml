@@ -1,0 +1,11 @@
+services:
+  byparr:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - LOG_LEVEL=DEBUG
+    volumes:
+      - ./screenshots:/app/screenshots # For screenshots when exception occurs
+    ports:
+      - "8191:8191"
