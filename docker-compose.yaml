@@ -8,4 +8,4 @@ services:
     volumes:
       - ./screenshots:/app/screenshots # For screenshots when exception occurs
     ports:
-      - "8191:8191"
+      - "8193:8191"

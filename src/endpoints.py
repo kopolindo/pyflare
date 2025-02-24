@@ -114,6 +114,32 @@ def bypass(request: LinkRequest, sb: SeleniumDep) -> LinkResponse:
             ),
             start_timestamp=start_time,
         )
+    else:
+        try:
+            verify_success(sb)
+        except Exception:
+            if sb.is_element_visible('input[value*="Verify"]'):
+                sb.uc_click('input[value*="Verify"]')
+            else:
+                sb.uc_gui_click_captcha()
+            try:
+                verify_success(sb)
+            except Exception:
+                save_screenshot(sb)
+                raise HTTPException(status_code=500, detail=f"Could not bypass challenge: {Exception}")
+            
+        return LinkResponse(
+            message="Success",
+            solution=Solution(
+                userAgent=sb.get_user_agent(),
+                url=sb.get_current_url(),
+                status=200,
+                cookies=sb.get_cookies(),
+                headers={},
+                response=str(source_bs),
+            ),
+            start_timestamp=start_time,
+        )
 
 def verify_success(sb):
     sb.assert_element('img[alt="logo"]', timeout=4)
