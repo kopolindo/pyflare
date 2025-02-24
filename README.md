@@ -1,5 +1,5 @@
 # Pypass
-Alternative to [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr) and to Byparr.
+Alternative to [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr) and to [Byparr](https://github.com/ThePhaseless/Byparr).
 Since lately none of those was working, I tried to write something on my own.
 It turned out that Byparr was a great start, so thank you [@ThePhaseless](https://github.com/ThePhaseless) :heart:
 
